@@ -1,22 +1,27 @@
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'directors_database'
 
+require 'pry'
+
+
 
 def directors_totals(nds)
 
-
-
 director_index=0
 answer = {}
-
 while director_index < nds.length do
+  # cycle thru as many times as there are directors
  director_name = nds[director_index][:name]
- answer[director_name] = 0
+ # each time it executes it reads for the name directors name in the index
+ answer[director_name] =0
  movie_index = 0
-
-
+binding.pry
  while movie_index < nds[director_index][:movies].length
+  #  executes for every movie in the director's hash
  answer[director_name] += nds[director_index][:movies][movie_index][:worldwide_gross]
+ #takes the already established name of the director and adds
+ binding.pry
+
  movie_index += 1
 end
 
